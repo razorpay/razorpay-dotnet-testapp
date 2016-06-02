@@ -10,13 +10,15 @@
     <form action="Charge.aspx" method="post">
 <script
     src="https://checkout.razorpay.com/v1/checkout.js"
-    data-key="<YOUR KEY>"
+    data-key="<YOUR API KEY>"
     data-amount="100"
     data-name="Razorpay"
     data-description="Purchase Description"
+    data-order_id="<%=orderId%>"
     data-image="https://razorpay.com/favicon.png"
     data-prefill.name="Harshil Mathur"
     data-prefill.email="support@razorpay.com"
+    data-prefill.contact="8888888888"
     data-theme.color="#F37254"
 ></script>
 <input type="hidden" value="Hidden Element" name="hidden">
