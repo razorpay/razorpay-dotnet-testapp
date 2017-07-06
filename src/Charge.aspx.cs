@@ -22,8 +22,17 @@ namespace RazorpaySampleApp
 
             RazorpayClient client = new RazorpayClient(key, secret);
 
-            Razorpay.Api.Payment payment = client.Payment.Fetch(paymentId);
-            Razorpay.Api.Payment capturedPayment = payment.Capture(input);
+            Dictionary<string, object> attributes = new Dictionary<string, string>();
+
+            attributes.Add("razorpay_payment_id", paymentId);
+            attributes.Add("razorpay_order_id", Request.Form["razorpay_order_id"]);
+            attributes.Add("razorpay_signature", Request.Form["razorpay_signature"]);
+
+            Utils.verifyPaymentSignature(attributes);
+
+            Refund refund = new Razorpay.Api.Payment((string) paymentId).Refund();
+
+            Console.WriteLine(refund["id"]);
         }
     }
 }
