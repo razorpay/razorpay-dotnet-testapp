@@ -17,6 +17,7 @@ namespace RazorpaySampleApp
             input.Add("amount", 100); // this amount should be same as transaction amount
             input.Add("currency", "INR");
             input.Add("receipt", "12121");
+            input.Add("payment_capture", 1);
 
             string key = "Your Key";
             string secret = "Your Secret";

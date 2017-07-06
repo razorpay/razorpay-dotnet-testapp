@@ -22,7 +22,7 @@ namespace RazorpaySampleApp
 
             RazorpayClient client = new RazorpayClient(key, secret);
 
-            Dictionary<string, object> attributes = new Dictionary<string, string>();
+            Dictionary<string, string> attributes = new Dictionary<string, string>();
 
             attributes.Add("razorpay_payment_id", paymentId);
             attributes.Add("razorpay_order_id", Request.Form["razorpay_order_id"]);
