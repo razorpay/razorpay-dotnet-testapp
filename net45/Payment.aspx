@@ -16,9 +16,9 @@
     data-description="Purchase Description"
     data-order_id="<%=orderId%>"
     data-image="https://razorpay.com/favicon.png"
-    data-prefill.name="Harshil Mathur"
-    data-prefill.email="support@razorpay.com"
-    data-prefill.contact="8888888888"
+    data-prefill.name="Gaurav Kumar"
+    data-prefill.email="gaurav.kumar@example.com"
+    data-prefill.contact="9123456789"
     data-theme.color="#F37254"
 ></script>
 <input type="hidden" value="Hidden Element" name="hidden">
