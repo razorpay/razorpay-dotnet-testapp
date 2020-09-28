@@ -26,9 +26,10 @@ namespace RazorpaySampleApp
 
             Utils.verifyPaymentSignature(attributes);
 
-            Refund refund = new Razorpay.Api.Payment((string) paymentId).Refund();
+//             please use the below code to refund the payment 
+//             Refund refund = new Razorpay.Api.Payment((string) paymentId).Refund();
 
-            Console.WriteLine(refund["id"]);
+            Console.WriteLine(paymentId);
         }
     }
 }
