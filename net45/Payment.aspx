@@ -6,7 +6,7 @@
 
     <head runat="server">
         <title>Razorpay .Net Sample App</title>
-        <form action="Charge.aspx" method="post" name="razorpayform">
+        <form action="Charge.aspx" method="post" name="razorpayForm">
             <input id="razorpay_payment_id" type="hidden" name="razorpay_payment_id" />
             <input id="razorpay_order_id" type="hidden" name="razorpay_order_id" />
             <input id="razorpay_signature" type="hidden" name="razorpay_signature" />
