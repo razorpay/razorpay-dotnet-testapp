@@ -15,5 +15,5 @@ FROM build AS publish
 RUN dotnet publish "RazorpaySampleApp45.csproj" -c Release -o /app/publish
 
 FROM base AS final
-COPY --from=publish /app/publish
+COPY --from=publish /app/publish /app/publish 
 ENTRYPOINT ["dotnet","RazorpaySampleApp45.dll"]
