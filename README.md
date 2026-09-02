@@ -1,19 +1,29 @@
 # Razorpay Test App for .NET
-Test App for Razorpay .NET Integration
 
-This app uses nuget package based sdk integration, if you are not using nuget please download 
-the sdk from **[here](https://www.nuget.org/packages/Razorpay)** and add the required version
-of dll in your project reference.
+Test App for Razorpay .NET Integration built as an **ASP.NET Core MVC** application targeting **.NET 10**.
 
-# Steps for Integration:
+## Setup
 
-1. Make a checkout form using our Checkout Integration
-2. Accept the `razorpay_payment_id` parameter in the form submission
-3. Run the capture code to capture the payment
+1. Fill in your Razorpay credentials in `appsettings.json` (set `Razorpay:KeyId` and `Razorpay:KeySecret`).
+2. Run the app:
 
-Please make sure you do the following while using this:
-- Edit the key inside Payment.aspx
-- Edit the keyId/keySecret in charge.aspx
+```
+dotnet run
+## Docker
 
-This release currently uses the 1.0.0 version of the .NET SDK. Please ensure that you are
-using the latest as the test app might lag behind.
+A multi-stage Linux Dockerfile is included:
+
+```
+docker compose up --build
+```
+
+The app will be available at `http://localhost:8080/Payment`.
+
+## Structure
+
+- `Controllers/PaymentController.cs` — creates the payment `Order`
+- `Controllers/ChargeController.cs` — verifies the payment signature
+- `Controllers/PaymentsController.cs` — Previous Payments and Refund Option
+- `Views/` — MVC views for the checkout page and verification result
+
+This app uses the [Razorpay NuGet SDK](https://www.nuget.org/packages/Razorpay).
