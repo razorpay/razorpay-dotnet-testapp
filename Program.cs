@@ -1,6 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<RazorpaySampleApp.Services.IRazorpayClientFactory, RazorpaySampleApp.Services.RazorpayClientFactory>();
 
 var app = builder.Build();
 

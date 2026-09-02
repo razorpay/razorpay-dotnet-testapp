@@ -2,16 +2,19 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Razorpay.Api;
 using RazorpaySampleApp.Models;
+using RazorpaySampleApp.Services;
 
 namespace RazorpaySampleApp.Controllers
 {
     public class PaymentController : Controller
     {
         private readonly IConfiguration _configuration;
+        private readonly IRazorpayClientFactory _clientFactory;
 
-        public PaymentController(IConfiguration configuration)
+        public PaymentController(IConfiguration configuration, IRazorpayClientFactory clientFactory)
         {
             _configuration = configuration;
+            _clientFactory = clientFactory;
         }
 
         public IActionResult Index()
@@ -35,9 +38,8 @@ namespace RazorpaySampleApp.Controllers
             input.Add("payment_capture", 1);
 
             string key = _configuration["Razorpay:KeyId"];
-            string secret = _configuration["Razorpay:KeySecret"];
 
-            RazorpayClient client = new RazorpayClient(key, secret);
+            RazorpayClient client = _clientFactory.Create();
 
             Razorpay.Api.Order order = client.Order.Create(input);
             ViewBag.OrderId = order["id"].ToString();

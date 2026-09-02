@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+    <header class="navbar">
+        <a class="navbar-brand" asp-controller="Payment" asp-action="Index">Razorpay Sample App</a>
+        <nav class="nav">
+            <a asp-controller="Payment" asp-action="Index">Make Payment</a>
+            <a asp-controller="Payments" asp-action="Index">Previous Payments</a>
+        </nav>
+    </header>
     <main>
         @RenderBody()
     </main>
