@@ -71,7 +71,7 @@ namespace RazorpaySampleApp.Controllers
 
                 client.Payment.Fetch(model.PaymentId).Refund(refundRequest);
 
-                TempData["RefundSuccess"] = $"Refund of ₹{model.Amount / 100m} issued for payment {model.PaymentId}.";
+                TempData["RefundSuccess"] = $"Refund of ₹{model.Amount / 100m} issued for payment {model.PaymentId}. Refund takes a little time .. Do refresh after 30 seconds after initiating refund";
             }
             catch (Exception ex)
             {
