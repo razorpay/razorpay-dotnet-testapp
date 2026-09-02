@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Razorpay.Api;
+using RazorpaySampleApp.Models;
 
 namespace RazorpaySampleApp.Controllers
 {
@@ -15,8 +16,20 @@ namespace RazorpaySampleApp.Controllers
 
         public IActionResult Index()
         {
+            return View(new PaymentRequest());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Start(PaymentRequest model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Index", model);
+            }
+
             Dictionary<string, object> input = new Dictionary<string, object>();
-            input.Add("amount", 100); // this amount should be same as transaction amount
+            input.Add("amount", model.Amount); // this amount should be same as transaction amount
             input.Add("currency", "INR");
             input.Add("receipt", "12121");
             input.Add("payment_capture", 1);
@@ -28,8 +41,9 @@ namespace RazorpaySampleApp.Controllers
 
             Razorpay.Api.Order order = client.Order.Create(input);
             ViewBag.OrderId = order["id"].ToString();
+            ViewBag.KeyId = key;
 
-            return View();
+            return View("Pay", model);
         }
     }
 }

@@ -27,3 +27,28 @@ button {
 button:hover {
     background: #e05d3e;
 }
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    max-width: 360px;
+    padding: 8px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.text-danger {
+    color: #b02a37;
+    font-size: 13px;
+}
