@@ -1,0 +1,10 @@
+@model string
+
+@{
+    ViewData["Title"] = "Payment Verified";
+}
+
+<h1>Payment Successful</h1>
+<p>Payment id: @Model</p>
+
+<a href="@Url.Action("Index", "Payment")">Make another payment</a>
